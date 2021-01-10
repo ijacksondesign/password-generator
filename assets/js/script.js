@@ -1,6 +1,6 @@
 // Assignment code here
 var generatePassword = function() {
-
+  
 }
 
 // functions for user input
@@ -19,64 +19,16 @@ var getPassLength = function() {
   }
 };
 
-var getPassCase = function() {
-  var passCase = "";
-
-  while (passCase === "" || passCase === null) {
-    passCase = prompt("Would you like lowercase or uppercase? Enter LOWER for lowercase or UPPER for uppercase.");
-
-    if (passCase.toLowerCase() === "lower" || passCase.toLowerCase() === "upper") {
-      return passCase;
-    } else {
-        alert("Invalid input.");
-        getPassCase();
-      }
-  }
-};
-
-var getPassNumeric = function() {
-  var passNumeric = "";
-
-  while (passNumeric === "" || passNumeric === null) {
-    passNumeric = prompt("Would you like to use numbers? Enter YES or NO.");
-  }
-
-  if (passNumeric.toLowerCase() === "yes" || passNumeric.toLowerCase() === "no") {
-    return passNumeric;
-  } else {
-    alert("Invalid input.");
-    getPassNumeric();
-  }
-};
-
-var getPassSpecial = function() {
-  var passSpecial = "";
-
-  while (passSpecial === "" || passSpecial === null) {
-    passSpecial = prompt("Would you like to use special characters? Enter YES or NO.");
-  }
-
-  if (passSpecial.toLowerCase() === "yes" || passSpecial.toLowerCase() === "no") {
-    return passSpecial;
-  } else {
-    alert("Invalid input.");
-    getPassSpecial();
-  }
-};
-
 var userInput = {
   passLength: getPassLength(),
-  passCase: getPassCase(),
-  passNumeric: getPassNumeric(),
-  passSpecial: getPassSpecial()
+  passLowerCase: confirm("Do you want to use lowercase letters?"),
+  passUpperCase: confirm("Do you want to use uppercase letters?"),
+  passNumeric: confirm("Do you want to use numbers?"),
+  passSpecial: confirm("Do you want to use special characters?")
 };
 
-var passParameters = {
-  charLowerLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-  charUpperLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-  charNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-  charSpecial = ['!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '.', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '{', '}', '|', '`'],
-};
+// function to validate user input
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -92,8 +44,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// getPassLength();
-// getPassCase();
-// getPassNumeric();
-// getPassSpecial();
