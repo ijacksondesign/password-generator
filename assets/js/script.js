@@ -16,6 +16,11 @@ var getPassLength = function() {
   }
 };
 
+var randomNumber = function(num) {
+  var value = Math.floor(Math.random() * num);
+  return value;
+};
+
 var generatePassword = function() {
   
   passLength = getPassLength();
@@ -34,10 +39,25 @@ var generatePassword = function() {
   }
 
   var password = "";
+  var lowerCase = "abcdefghiklmnopqrstuvwxyz";
+  var upperCase = lowerCase.toUpperCase();
+  var numeric = randomNumber(9);
+  var specialChar = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
   
   for (let i = 0; i < passLength; i++) {
-    password += [i];
-    console.log(password);
+    switch (randomNumber(4)) {
+      case 0:
+        password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+        break;
+      case 1:
+        password += upperCase[Math.floor(Math.random() * upperCase.length)];
+        break;
+      case 2:
+        password += numeric;
+        break;
+      case 3:
+        password += specialChar[Math.floor(Math.random() * specialChar.length)];
+    }
   }
   return password;
 };
