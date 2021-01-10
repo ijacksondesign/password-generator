@@ -45,19 +45,138 @@ var generatePassword = function() {
   var specialChar = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
   
   for (let i = 0; i < passLength; i++) {
-    switch (randomNumber(4)) {
-      case 0:
-        password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-        break;
-      case 1:
-        password += upperCase[Math.floor(Math.random() * upperCase.length)];
-        break;
-      case 2:
-        password += numeric;
-        break;
-      case 3:
-        password += specialChar[Math.floor(Math.random() * specialChar.length)];
+    if (passLowerCase === true && passUpperCase === true && passNumeric === true && passSpecial === true) {
+      switch (randomNumber(4)) {
+        case 0:
+          password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+          break;
+        case 1:
+          password += upperCase[Math.floor(Math.random() * upperCase.length)];
+          break;
+        case 2:
+          password += numeric;
+          break;
+        case 3:
+          password += specialChar[Math.floor(Math.random() * specialChar.length)];
+      }
+    }  
+    else if (passLowerCase === true && passUpperCase === true && passNumeric === true) {
+      switch (randomNumber(3)) {
+        case 0:
+          password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+          break;
+        case 1:
+          password += upperCase[Math.floor(Math.random() * upperCase.length)];
+          break;
+        case 2:
+          password += numeric;
+      }
     }
+    else if (passLowerCase === true && passUpperCase === true && passSpecial === true) {
+      switch (randomNumber(3)) {
+        case 0:
+          password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+          break;
+        case 1:
+          password += upperCase[Math.floor(Math.random() * upperCase.length)];
+          break;
+        case 2:
+          password += specialChar[Math.floor(Math.random() * specialChar.length)];
+      }
+    }  
+    else if (passLowerCase === true && passNumeric === true && passSpecial === true) {
+      switch (randomNumber(3)) {
+        case 0:
+          password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+          break;
+        case 1:
+          password += numeric;
+          break;
+        case 2:
+          password += specialChar[Math.floor(Math.random() * specialChar.length)];
+      }
+    }
+    else if (passUpperCase === true && passNumeric === true && passSpecial === true) {
+      switch (randomNumber(3)) {
+        case 0:
+          password += upperCase[Math.floor(Math.random() * upperCase.length)];
+          break;
+        case 1:
+          password += numeric;
+          break;
+        case 2:
+          password += specialChar[Math.floor(Math.random() * specialChar.length)];
+      }
+    }
+    else if (passLowerCase === true && passUpperCase === true) {
+      switch (randomNumber(2)) {
+        case 0:
+          password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+          break;
+        case 1:
+          password += upperCase[Math.floor(Math.random() * upperCase.length)];
+      }
+    }
+    else if (passLowerCase === true && passNumeric === true) {
+      switch (randomNumber(2)) {
+        case 0:
+          password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+          break;
+        case 1:
+          password += numeric;
+      }
+    }
+    else if (passLowerCase === true && passSpecial === true) {
+      switch (randomNumber(2)) {
+        case 0:
+          password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+          break;
+        case 1:
+          password += specialChar[Math.floor(Math.random() * specialChar.length)];
+      }
+    }
+    else if (passUpperCase === true && passNumeric === true) {
+      switch (randomNumber(2)) {
+        case 0:
+          password += upperCase[Math.floor(Math.random() * upperCase.length)];
+          break;
+        case 1:
+          password += numeric;
+      }
+    }
+    else if (passUpperCase === true && passSpecial === true) {
+      switch (randomNumber(2)) {
+        case 0:
+          password += upperCase[Math.floor(Math.random() * upperCase.length)];
+          break;
+        case 1:
+          password += specialChar[Math.floor(Math.random() * specialChar.length)];
+      }
+    }
+    else if (passNumeric === true && passSpecial === true) {
+      switch (randomNumber(2)) {
+        case 0:
+          password += numeric;
+          break;
+        case 1:
+          password += specialChar[Math.floor(Math.random() * specialChar.length)];
+      }
+    }
+    else if (passLowerCase === true) {
+      password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+    }
+    else if (passUpperCase === true) {
+      password += upperCase[Math.floor(Math.random() * lowerCase.length)];
+    }
+    else if (passNumeric === true) {
+      password += numeric;
+    }
+    else {
+      password += specialChar[Math.floor(Math.random() * specialChar.length)];
+    }
+    
+    
+    
   }
   return password;
 };
