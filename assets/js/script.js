@@ -1,9 +1,6 @@
 // Assignment code here
-var generatePassword = function() {
-  
-}
 
-// functions for user input
+// function for password length
 var getPassLength = function() {
   var passLength = "";
 
@@ -19,16 +16,31 @@ var getPassLength = function() {
   }
 };
 
-var userInput = {
-  passLength: getPassLength(),
-  passLowerCase: confirm("Do you want to use lowercase letters?"),
-  passUpperCase: confirm("Do you want to use uppercase letters?"),
-  passNumeric: confirm("Do you want to use numbers?"),
-  passSpecial: confirm("Do you want to use special characters?")
+var generatePassword = function() {
+  
+  passLength = getPassLength();
+
+  var passLowerCase = confirm("Do you want to use lowercase letters?");
+  var passUpperCase = confirm("Do you want to use uppercase letters?");
+  var passNumeric = confirm("Do you want to use numbers?");
+  var passSpecial = confirm("Do you want to use special characters?");
+
+  while (passLowerCase === false && passUpperCase === false && passNumeric === false && passSpecial === false) {
+    alert("You must selection at least one of the parameters: LOWERCASE, UPPERCASE, NUMBERS, or SPECIAL CHARACTERS.")
+    passLowerCase = confirm("Do you want to use lowercase letters?");
+    passUpperCase = confirm("Do you want to use uppercase letters?");
+    passNumeric = confirm("Do you want to use numbers?");
+    passSpecial = confirm("Do you want to use special characters?");
+  }
+
+  var password = "";
+  
+  for (let i = 0; i < passLength; i++) {
+    password += [i];
+    console.log(password);
+  }
+  return password;
 };
-
-// function to validate user input
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
